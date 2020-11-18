@@ -18,6 +18,7 @@ export class DatasetsComponent implements OnInit {
 
   initializeWebSocketConnection() {
     const serverUrl = 'http://localhost:8080/ws'
+    // const serverUrl = 'http://om-sf-task-be.herokuapp.com/ws'
     const ws = new SockJS(serverUrl)
     this.stompClient = Stomp.over(ws)
     this.stompClient.connect({}, this.onStompConnected)
@@ -27,6 +28,7 @@ export class DatasetsComponent implements OnInit {
     this.stompClient.subscribe('/topic/datasets', (message) => {
       if (message.body) {
         this.msg.push(message.body)
+        console.log(JSON.parse(message.body))
       }
     })
   }
