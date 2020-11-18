@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core'
-import { Stomp } from 'stompjs/lib/stomp'
-const SockJS = window['SockJS']
+import { DatasetsWebsocketService } from './datasets.websocket.service'
+import { DatasetsRestService } from './datasets.rest.service'
 
 @Component({
   selector: 'app-datasets',
@@ -9,31 +9,26 @@ const SockJS = window['SockJS']
 })
 export class DatasetsComponent implements OnInit {
 
-  public stompClient
-  public msg = []
+  datasetsWebsocketService: DatasetsWebsocketService
+  datasetsRestService: DatasetsRestService
 
-  constructor() {
-    this.initializeWebSocketConnection()
+  constructor(
+    datasetsWebsocketService: DatasetsWebsocketService,
+    datasetsRestService: DatasetsRestService
+  ) {
+    this.datasetsWebsocketService = datasetsWebsocketService
+    this.datasetsRestService = datasetsRestService
   }
 
-  initializeWebSocketConnection() {
-    const serverUrl = 'http://localhost:8080/ws'
-    // const serverUrl = 'http://om-sf-task-be.herokuapp.com/ws'
-    const ws = new SockJS(serverUrl)
-    this.stompClient = Stomp.over(ws)
-    this.stompClient.connect({}, this.onStompConnected)
+  datasetUpdate = data => {
+    console.log(data)
   }
 
-  onStompConnected = () => {
-    this.stompClient.subscribe('/topic/datasets', (message) => {
-      if (message.body) {
-        this.msg.push(message.body)
-        console.log(JSON.parse(message.body))
-      }
-    })
-  }
 
   ngOnInit(): void {
+    this.datasetsRestService.getDatasets().then(response => console.log(response))
+    this.datasetsRestService.getMetadata('contracts').then(response => console.log(response))
+    // this.datasetsWebsocketService.subscribe('/topic/datasets', this.datasetUpdate)
   }
 
 }

@@ -6,6 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { datasetsReducer } from './datasets/datasets.reducer';
 import { EffectsModule } from '@ngrx/effects';
+import { DatasetsWebsocketService } from './datasets/datasets.websocket.service';
+import { DatasetsRestService } from './datasets/datasets.rest.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,7 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([])
   ],
-  providers: [],
-  bootstrap: [DatasetsComponent]
+  providers: [ DatasetsWebsocketService, DatasetsRestService ],
+  bootstrap: [ DatasetsComponent ]
 })
 export class AppModule { }

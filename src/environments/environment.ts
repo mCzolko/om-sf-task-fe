@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  webSocketUrl: 'http://om-sf-task-be.herokuapp.com/ws',
+  restUrl: 'http://om-sf-task-be.herokuapp.com'
 };
 
 /*
