@@ -2,15 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import { DatasetsComponent } from './datasets/datasets.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DatasetsComponent
   ],
   imports: [
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [DatasetsComponent]
 })
 export class AppModule { }
