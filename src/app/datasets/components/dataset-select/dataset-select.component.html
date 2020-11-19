@@ -1,0 +1,7 @@
+<div *ngIf="datasets.length === 0">
+  Datasets not loaded
+</div>
+
+<select *ngIf="datasets.length > 0">
+  <option *ngFor="let dataset of datasets">{{dataset}}</option>
+</select>
