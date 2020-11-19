@@ -23,7 +23,7 @@ export class DatasetListContainer implements OnInit {
   }
 
   onSelectChange(datasetId) {
-    console.log('datasetId:', datasetId)
+    this.store.dispatch(new fromStore.LoadDatasetMetadata(datasetId))
   }
 
 }
