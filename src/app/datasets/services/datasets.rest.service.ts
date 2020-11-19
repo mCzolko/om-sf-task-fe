@@ -1,12 +1,18 @@
 import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../environments/environment'
+import { Observable } from 'rxjs'
+import { DatasetListItem } from '../models/dataset-list.model'
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class DatasetsRestService {
 
-  getDatasets() {
-    return fetch(`${environment.restUrl}/getDatasets`)
-      .then(response => response.json())
+  constructor (private http: HttpClient) {}
+
+  getDatasets(): Observable<DatasetListItem[]> {
+    return this.http.get(`${environment.restUrl}/getDatasets`) as Observable<DatasetListItem[]>
   }
 
   getMetadata(datasetId) {

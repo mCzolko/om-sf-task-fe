@@ -8,7 +8,7 @@ export interface DatasetListState {
 }
 
 export const initialState: DatasetListState = {
-  items: [ 'test1', 'test2' ],
+  items: [],
   loading: false,
   loaded: false
 }
@@ -28,10 +28,12 @@ export function reducer(
     }
 
     case fromDatasetList.LOAD_DATASET_LIST_SUCCESS: {
+      const items = action.payload
       return {
         ...state,
         loading: false,
-        loaded: true
+        loaded: true,
+        items
       }
     }
 

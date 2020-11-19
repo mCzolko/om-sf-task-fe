@@ -16,6 +16,7 @@ export class DatasetListContainer implements OnInit {
 
   ngOnInit() {
     this.datasetList$ = this.store.select(fromStore.selectors.getDatasetList)
+    this.store.dispatch(new fromStore.LoadDatasetList())
   }
 
 }

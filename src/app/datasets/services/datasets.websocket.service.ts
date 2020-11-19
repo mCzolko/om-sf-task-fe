@@ -3,7 +3,9 @@ import { environment } from '../../../environments/environment'
 import { Stomp } from 'stompjs/lib/stomp'
 const SockJS = window['SockJS']
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class DatasetsWebsocketService {
 
   public isConnected = false

@@ -4,6 +4,8 @@ import { AppComponent } from './components/app.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { DatasetsModule } from './datasets/datasets.module';
+import { HttpClientModule } from '@angular/common/http'
+import { EffectsModule } from '@ngrx/effects'
 
 @NgModule({
   declarations: [
@@ -11,6 +13,8 @@ import { DatasetsModule } from './datasets/datasets.module';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    EffectsModule.forRoot([]),
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument(),
     DatasetsModule

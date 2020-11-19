@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { StoreModule } from '@ngrx/store'
+import { EffectsModule } from '@ngrx/effects'
 
 // containers
 import { containers } from './containers'
 // components
 import { components } from './components'
 // store
-import { reducers } from './store'
+import { reducers, effects } from './store'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { reducers } from './store'
   ],
   imports: [
     CommonModule,
-    StoreModule.forFeature('datasets', reducers)
+    StoreModule.forFeature('datasets', reducers),
+    EffectsModule.forFeature(effects)
   ],
   exports: [
     ...containers,
