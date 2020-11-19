@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store'
-import { DatasetListItem } from '../../models/datasetList.model'
+import { DatasetListItem } from '../../models/dataset-list.model'
 
 // Load dataset list
 export const LOAD_DATASET_LIST = '[Datasets] Load Dataset List'

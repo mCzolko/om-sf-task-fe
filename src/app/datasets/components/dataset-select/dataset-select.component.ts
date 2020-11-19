@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DatasetListItem } from '../../models/datasetList.model';
+import { DatasetListItem } from '../../models/dataset-list.model';
 
 @Component({
   selector: 'dataset-select',

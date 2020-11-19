@@ -1,6 +1,6 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store'
 import { DatasetsState } from '../reducers'
-import * as fromDatasetList from '../reducers/datasetList.reducer'
+import * as fromDatasetList from '../reducers/dataset-list.reducer'
 
 export const getDatasetsState = createFeatureSelector<DatasetsState>(
   'datasets'

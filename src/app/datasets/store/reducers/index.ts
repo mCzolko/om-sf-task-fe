@@ -1,6 +1,6 @@
 import { ActionReducerMap } from '@ngrx/store'
 
-import * as fromDatasetList from './datasetList.reducer'
+import * as fromDatasetList from './dataset-list.reducer'
 
 export interface DatasetsState {
   datasetList: fromDatasetList.DatasetListState

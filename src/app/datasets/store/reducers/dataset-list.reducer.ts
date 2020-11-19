@@ -1,5 +1,5 @@
-import * as fromDatasetList from '../actions/datasetList.action'
-import { DatasetListItem } from '../../models/datasetList.model'
+import * as fromDatasetList from '../actions/dataset-list.action'
+import { DatasetListItem } from '../../models/dataset-list.model'
 
 export interface DatasetListState {
   items: DatasetListItem[],

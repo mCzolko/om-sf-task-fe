@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
 import { Observable } from 'rxjs'
-import { DatasetListItem } from '../../models/datasetList.model'
+import { DatasetListItem } from '../../models/dataset-list.model'
 import * as fromStore from '../../store'
 
 @Component({
   selector: 'datasetlist-container',
-  templateUrl: './datasetList.container.html',
+  templateUrl: './dataset-list.container.html',
 })
 export class DatasetListContainer implements OnInit {
 
