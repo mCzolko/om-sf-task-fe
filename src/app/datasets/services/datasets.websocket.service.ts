@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core'
 import { environment } from '../../../environments/environment'
 import { Stomp } from 'stompjs/lib/stomp'
+import { Observable } from 'rxjs'
+import { DatasetDataUpdate } from '../models/dataset-data-update.model'
 const SockJS = window['SockJS']
 
 @Injectable({
@@ -14,6 +16,15 @@ export class DatasetsWebsocketService {
 
   constructor() {
     this.initializeWebSocketConnection()
+  }
+
+  connectToUpdateStream(): Observable<DatasetDataUpdate> {
+    return new Observable(observer => {
+
+      this.subscribe('/topic/datasets', update => {
+        observer.next(update)
+      })
+    })
   }
 
   private initializeWebSocketConnection() {

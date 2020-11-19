@@ -2,7 +2,7 @@ import { createSelector, createFeatureSelector } from '@ngrx/store'
 import { DatasetsState } from '../reducers'
 import * as fromDatasetMetadata from '../reducers/dataset-metadata.reducer'
 
-export const getDatasetsState = createFeatureSelector<DatasetsState>(
+const getDatasetsState = createFeatureSelector<DatasetsState>(
   'datasets'
 )
 
