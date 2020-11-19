@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
 import * as datasetMetadataActions from '../actions/dataset-metadata.action'
 import { catchError, map, switchMap } from 'rxjs/operators'
-import { DatasetsRestService } from '../../services/datasets.rest.service'
+import { DatasetsRestService, MetadataResponse } from '../../services/datasets.rest.service'
 import { of } from 'rxjs'
 import { DatasetMetadata } from '../../models/dataset-metadata.model'
 
@@ -14,7 +14,7 @@ export class DatasetMetadataEffect {
     private restService: DatasetsRestService
   ) {}
 
-  private convertMetadataFromResponse(data: Object): DatasetMetadata[] {
+  private convertMetadataFromResponse(data: MetadataResponse): DatasetMetadata[] {
     return Object.keys(data).map(field => ({
       field,
       name: data[field]
@@ -27,7 +27,7 @@ export class DatasetMetadataEffect {
       switchMap(({ datasetId }) =>
         this.restService.getMetadata(datasetId)
           .pipe(
-            map((metadata: Object) =>
+            map((metadata: MetadataResponse) =>
               new datasetMetadataActions.LoadDatasetMetadataSuccess(
                 this.convertMetadataFromResponse(metadata)
               )

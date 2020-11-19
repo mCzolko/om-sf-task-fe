@@ -3,7 +3,10 @@ import { HttpClient } from '@angular/common/http'
 import { environment } from '../../../environments/environment'
 import { Observable } from 'rxjs'
 import { DatasetListItem } from '../models/dataset-list.model'
-import { DatasetMetadata } from '../models/dataset-metadata.model'
+
+export interface MetadataResponse {
+  [key: string]: string
+}
 
 @Injectable({
   providedIn: 'root',
@@ -16,8 +19,8 @@ export class DatasetsRestService {
     return this.http.get(`${environment.restUrl}/getDatasets`) as Observable<DatasetListItem[]>
   }
 
-  getMetadata(datasetId): Observable<DatasetMetadata[]> {
-    return this.http.get(`${environment.restUrl}/getMetadata/${datasetId}`) as Observable<DatasetMetadata[]>
+  getMetadata(datasetId): Observable<MetadataResponse> {
+    return this.http.get(`${environment.restUrl}/getMetadata/${datasetId}`) as Observable<MetadataResponse>
   }
 
 }
