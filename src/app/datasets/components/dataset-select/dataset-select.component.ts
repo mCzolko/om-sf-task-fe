@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DatasetListItem } from '../../models/dataset-list.model';
 
@@ -7,14 +7,16 @@ import { DatasetListItem } from '../../models/dataset-list.model';
   templateUrl: './dataset-select.component.html',
   styleUrls: ['./dataset-select.component.css']
 })
-export class DatasetSelectComponent implements OnInit {
+export class DatasetSelectComponent {
 
   @Input()
   datasets$: Observable<DatasetListItem[]>
 
-  constructor() { }
+  @Output()
+  onSelectChange = new EventEmitter<string>()
 
-  ngOnInit(): void {
+  onOptionsSelected = (event: Event) => {
+    this.onSelectChange.emit(event.target['value'])
   }
 
 }

@@ -22,4 +22,8 @@ export class DatasetListContainer implements OnInit {
     this.store.dispatch(new fromStore.LoadDatasetList())
   }
 
+  onSelectChange(datasetId) {
+    console.log('datasetId:', datasetId)
+  }
+
 }

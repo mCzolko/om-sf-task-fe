@@ -1,4 +1,4 @@
-<select [disabled]="(datasets$ | async)?.length==0">
+<select [disabled]="(datasets$ | async)?.length==0" (change)="onOptionsSelected($event)">
   <option value="" selected disabled>Select dataset</option>
-  <option *ngFor="let dataset of datasets$ | async">{{dataset}}</option>
+  <option *ngFor="let dataset of datasets$ | async" [value]="dataset">{{dataset}}</option>
 </select>
