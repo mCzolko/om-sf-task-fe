@@ -14,3 +14,4 @@ export const getDatasetListState = createSelector(
 export const getDatasetList = createSelector(getDatasetListState, fromDatasetList.getDatasetList)
 export const getDatasetListLoading = createSelector(getDatasetListState, fromDatasetList.getDatasetListLoading)
 export const getDatasetListLoaded = createSelector(getDatasetListState, fromDatasetList.getDatasetListLoaded)
+export const getDatasetListErrored = createSelector(getDatasetListState, fromDatasetList.getDatasetListErrored)

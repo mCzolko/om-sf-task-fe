@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects'
 import * as datasetListActions from '../actions/dataset-list.action'
 import { catchError, map, mergeMap } from 'rxjs/operators'
 import { DatasetsRestService } from '../../services/datasets.rest.service'
-import { EMPTY } from 'rxjs'
+import { of } from 'rxjs'
 
 @Injectable()
 export class DatasetListEffect {
@@ -20,7 +20,7 @@ export class DatasetListEffect {
         this.restService.getDatasets()
           .pipe(
             map(items => new datasetListActions.LoadDatasetListSuccess(items)),
-            catchError(() => EMPTY)
+            catchError(error => of(new datasetListActions.LoadDatasetListFail(error)))
           )
       )
     )

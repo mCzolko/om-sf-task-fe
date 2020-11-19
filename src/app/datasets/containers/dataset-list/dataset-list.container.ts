@@ -11,11 +11,14 @@ import * as fromStore from '../../store'
 export class DatasetListContainer implements OnInit {
 
   datasetList$: Observable<DatasetListItem[]>
+  datasetListErrored$: Observable<boolean>
 
   constructor(private store: Store<fromStore.DatasetsState>) {}
 
   ngOnInit() {
     this.datasetList$ = this.store.select(fromStore.selectors.getDatasetList)
+    this.datasetListErrored$ = this.store.select(fromStore.selectors.getDatasetListErrored)
+
     this.store.dispatch(new fromStore.LoadDatasetList())
   }
 

@@ -1,3 +1,5 @@
 <p>Select</p>
 <dataset-select [datasets$]="datasetList$">
 </dataset-select>
+
+<span *ngIf="datasetListErrored$ | async">Error in obtaining datasets</span>
