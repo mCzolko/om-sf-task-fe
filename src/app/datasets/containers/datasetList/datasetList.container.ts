@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
+import { Observable } from 'rxjs'
+import { DatasetListItem } from '../../models/datasetList.model'
 import * as fromStore from '../../store'
 
 @Component({
@@ -8,13 +10,12 @@ import * as fromStore from '../../store'
 })
 export class DatasetListContainer implements OnInit {
 
-  datasetList = []
+  datasetList$: Observable<DatasetListItem[]>
 
   constructor(private store: Store<fromStore.DatasetsState>) {}
 
   ngOnInit() {
-    this.store.select<any>(fromStore.selectors.getDatasetList).subscribe(items => {
-      this.datasetList = items
-    })
+    this.datasetList$ = this.store.select(fromStore.selectors.getDatasetList)
   }
+
 }

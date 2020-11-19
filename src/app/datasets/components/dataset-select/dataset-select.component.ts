@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { DatasetListItem } from '../../models/datasetList.model';
 
 @Component({
   selector: 'dataset-select',
@@ -8,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DatasetSelectComponent implements OnInit {
 
   @Input()
-  datasets = []
+  datasets$: Observable<DatasetListItem[]>
 
   constructor() { }
 
