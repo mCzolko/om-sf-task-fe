@@ -27,11 +27,11 @@ export function reducer(
           ...item,
           id: item.id,
         }
-      }), state[update.topic])
+      }), state[update.topic.toLowerCase()])
 
       return {
         ...state,
-        [update.topic]: data
+        [update.topic.toLowerCase()]: data
       } as DatasetDataState
     }
 
