@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core'
-import { Observable } from 'rxjs'
+import { Component, Input, OnDestroy, OnInit } from '@angular/core'
+import { Observable, Subscription } from 'rxjs'
 import { DatasetDataState } from '../../store/reducers/dataset-data.reducer'
 import { DatasetMetadataState } from '../../store/reducers/dataset-metadata.reducer'
 
@@ -8,10 +8,13 @@ import { DatasetMetadataState } from '../../store/reducers/dataset-metadata.redu
   templateUrl: './dataset-table.component.html',
   styleUrls: ['./dataset-table.component.css']
 })
-export class DatasetTableComponent {
+export class DatasetTableComponent implements OnInit, OnDestroy {
+
+  columnDefs = []
 
   private gridApi
-  columnDefs = []
+  private metadataSubscription: Subscription
+  private dataSubscription: Subscription
 
   @Input()
   metadata$: Observable<DatasetMetadataState>
@@ -19,10 +22,13 @@ export class DatasetTableComponent {
   @Input()
   data$: Observable<DatasetDataState>
 
-  onGridReady(params) {
-    this.gridApi = params.api
-    
-    this.metadata$.subscribe(metadata => {
+  ngOnInit(): void {
+    this.dataSubscription = this.data$.subscribe(data => this.gridApi && this.gridApi.setRowData(data))
+
+    this.metadataSubscription = this.metadata$.subscribe(metadata => {
+      if (!this.gridApi) {
+        return
+      }
       if (metadata.loading) {
         this.gridApi.showLoadingOverlay()
       } else {
@@ -34,11 +40,18 @@ export class DatasetTableComponent {
         }))
       }
     })
-
-    this.data$.subscribe(newRowData => params.api.setRowData(newRowData))
   }
 
-  getRowNodeId(data) {
+  ngOnDestroy(): void {
+    this.dataSubscription.unsubscribe()
+    this.metadataSubscription.unsubscribe()
+  }
+
+  onGridReady({ api }): void {
+    this.gridApi = api
+  }
+
+  getRowNodeId(data): Number {
     return data.id
   }
 
