@@ -16,11 +16,11 @@ export class DatasetsRestService {
   constructor (private http: HttpClient) {}
 
   getDatasets(): Observable<DatasetListItem[]> {
-    return this.http.get(`${environment.restUrl}/getDatasets`) as Observable<DatasetListItem[]>
+    return this.http.get(`${environment.restUrl}/dataset`) as Observable<DatasetListItem[]>
   }
 
   getMetadata(datasetId): Observable<MetadataResponse> {
-    return this.http.get(`${environment.restUrl}/getMetadata/${datasetId}`) as Observable<MetadataResponse>
+    return this.http.get(`${environment.restUrl}/dataset/${datasetId}/metadata`) as Observable<MetadataResponse>
   }
 
 }

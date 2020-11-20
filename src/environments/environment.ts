@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  webSocketUrl: 'http://om-sf-task-be.herokuapp.com/ws',
-  restUrl: 'http://om-sf-task-be.herokuapp.com'
+  webSocketUrl: 'http://localhost:8080/ws',
+  restUrl: 'http://localhost:8080'
 };
 
 /*
