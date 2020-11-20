@@ -3,6 +3,7 @@ import { DatasetMetadata } from '../../models/dataset-metadata.model'
 
 export interface DatasetMetadataState {
   items: DatasetMetadata[],
+  selected: string,
   loading: boolean,
   loaded: boolean,
   errored: boolean
@@ -10,6 +11,7 @@ export interface DatasetMetadataState {
 
 export const initialState: DatasetMetadataState = {
   items: [],
+  selected: null,
   loading: false,
   loaded: false,
   errored: false
@@ -26,6 +28,7 @@ export function reducer(
       return {
         ...state,
         items: [],
+        selected: action.datasetId,
         loading: true,
         errored: false
       }
@@ -59,4 +62,5 @@ export function reducer(
 export const getDatasetMetadataLoading = (state: DatasetMetadataState) => state.loading
 export const getDatasetMetadataLoaded = (state: DatasetMetadataState) => state.loaded
 export const getDatasetMetadataErrored = (state: DatasetMetadataState) => state.errored
+export const getDatasetMetadataSelected = (state: DatasetMetadataState) => state.selected
 export const getDatasetMetadata = (state: DatasetMetadataState) => state.items

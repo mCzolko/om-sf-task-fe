@@ -15,3 +15,4 @@ export const getDatasetMetadata = createSelector(getDatasetMetadataState, fromDa
 export const getDatasetMetadataLoading = createSelector(getDatasetMetadataState, fromDatasetMetadata.getDatasetMetadataLoading)
 export const getDatasetMetadataLoaded = createSelector(getDatasetMetadataState, fromDatasetMetadata.getDatasetMetadataLoaded)
 export const getDatasetMetadataErrored = createSelector(getDatasetMetadataState, fromDatasetMetadata.getDatasetMetadataErrored)
+export const getDatasetMetadataSelected = createSelector(getDatasetMetadataState, fromDatasetMetadata.getDatasetMetadataSelected)

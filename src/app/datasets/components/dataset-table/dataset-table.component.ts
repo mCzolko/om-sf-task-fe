@@ -31,10 +31,7 @@ export class DatasetTableComponent {
       }
     })
 
-    this.data$.subscribe(function (newRowData) {
-      console.log(newRowData)
-      return params.api.setRowData(newRowData)
-    })
+    this.data$.subscribe(newRowData => params.api.setRowData(newRowData))
   }
 
 }

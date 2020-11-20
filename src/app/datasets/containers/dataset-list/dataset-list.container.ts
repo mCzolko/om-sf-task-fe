@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { Store } from '@ngrx/store'
-import { EMPTY, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
 import { DatasetListItem } from '../../models/dataset-list.model'
 import * as fromStore from '../../store'
-import { DatasetDataState } from '../../store/reducers/dataset-data.reducer'
 import { DatasetMetadataState } from '../../store/reducers/dataset-metadata.reducer'
 
 @Component({
@@ -28,7 +27,7 @@ export class DatasetListContainer implements OnInit {
     this.datasetListErrored$ = this.store.select(fromStore.selectors.getDatasetListErrored)
 
     this.datasetMetadata$ = this.store.select(fromStore.selectors.getDatasetMetadataState)
-    this.datasetData$ = this.store.select(fromStore.selectors.getDataByDatasetId)
+    this.datasetData$ = this.store.select(fromStore.selectors.getDataByDataset)
 
     this.store.dispatch(new fromStore.LoadDatasetList())
   }
