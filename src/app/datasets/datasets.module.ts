@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { StoreModule } from '@ngrx/store'
 import { EffectsModule } from '@ngrx/effects'
+import { AgGridModule } from 'ag-grid-angular'
 
 // containers
 import { containers } from './containers'
@@ -18,7 +19,8 @@ import { reducers, effects } from './store'
   imports: [
     CommonModule,
     StoreModule.forFeature('datasets', reducers),
-    EffectsModule.forFeature(effects)
+    EffectsModule.forFeature(effects),
+    AgGridModule.withComponents([])
   ],
   exports: [
     ...containers,

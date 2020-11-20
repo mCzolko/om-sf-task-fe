@@ -3,3 +3,9 @@
 </dataset-select>
 
 <span *ngIf="datasetListErrored$ | async">Error in obtaining datasets</span>
+
+<dataset-table
+  [metadata$]="datasetMetadata$"
+  [data$]="datasetData$"
+>
+</dataset-table>

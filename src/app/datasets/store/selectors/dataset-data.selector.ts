@@ -12,3 +12,13 @@ export const getDatasetDataState = createSelector(
 )
 
 export const getDatasetData = createSelector(getDatasetDataState, fromDatasetData.getDatasetData)
+export const getDataByDatasetId = createSelector(
+  getDatasetDataState,
+  fromDatasetData.getDatasetData,
+  (datasetData) => {
+    if (datasetData['Dataset1']) {
+      return Object.values(datasetData['Dataset1'])
+    }
+    return []
+  }
+)
