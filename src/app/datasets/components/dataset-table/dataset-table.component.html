@@ -4,6 +4,8 @@
       class="ag-theme-alpine"
       [columnDefs]="columnDefs"
       (gridReady)="onGridReady($event)"
+      [immutableData]="true"
+      [getRowNodeId]="getRowNodeId"
   >
   </ag-grid-angular>
 </div>

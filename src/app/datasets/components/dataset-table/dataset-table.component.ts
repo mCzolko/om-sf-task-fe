@@ -27,11 +27,19 @@ export class DatasetTableComponent {
         this.gridApi.showLoadingOverlay()
       } else {
         this.gridApi.hideOverlay()
-        this.columnDefs = metadata.items.map(({ name: headerName, field }) => ({ headerName, field }))
+        this.columnDefs = metadata.items.map(({ name: headerName, field }) => ({
+          headerName,
+          field,
+          cellRenderer: 'agAnimateShowChangeCellRenderer'
+        }))
       }
     })
 
     this.data$.subscribe(newRowData => params.api.setRowData(newRowData))
+  }
+
+  getRowNodeId(data) {
+    return data.id
   }
 
 }
