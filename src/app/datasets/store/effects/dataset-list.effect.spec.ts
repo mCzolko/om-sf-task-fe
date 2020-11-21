@@ -50,4 +50,15 @@ describe('DatasetListEffect', () => {
       .flush(mockData)
   })
 
+  it(`should dispatch "${datasetListActions.LOAD_DATASET_LIST_FAIL}" when ERROR`, () => {
+    actions$ = of({ type: datasetListActions.LOAD_DATASET_LIST })
+    effects.loadDatasetList$.subscribe(action => {
+      expect(action.type).toEqual(datasetListActions.LOAD_DATASET_LIST_FAIL)
+    })
+
+    httpTestingController
+      .expectOne('http://localhost:8080/dataset')
+      .error(new ErrorEvent('just errored'))
+  })
+
 })
