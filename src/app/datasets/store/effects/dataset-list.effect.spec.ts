@@ -37,18 +37,17 @@ describe('DatasetListEffect', () => {
   })
 
   it(`should dispatch "${datasetListActions.LOAD_DATASET_LIST_SUCCESS}" when OK`, () => {
-    const data = [ 'dataset-one', 'dataset-two' ]
+    const mockData = [ 'dataset-one', 'dataset-two' ]
 
     actions$ = of({ type: datasetListActions.LOAD_DATASET_LIST })
     effects.loadDatasetList$.subscribe(action => {
       expect(action.type).toEqual(datasetListActions.LOAD_DATASET_LIST_SUCCESS)
-      expect(action.payload).toEqual(data)
+      expect(action.payload).toEqual(mockData)
     })
 
-    const req = httpTestingController.expectOne(
-      'http://localhost:8080/dataset'
-    )
-    req.flush(data)
+    httpTestingController
+      .expectOne('http://localhost:8080/dataset')
+      .flush(mockData)
   })
 
 })
