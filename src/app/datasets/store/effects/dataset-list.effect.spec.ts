@@ -13,8 +13,6 @@ describe('DatasetListEffect', () => {
   let httpTestingController: HttpTestingController
 
   beforeEach(() => {
-    actions$ = of(datasetListActions.LOAD_DATASET_LIST)
-
     TestBed.configureTestingModule({
       providers: [
         DatasetListEffect,
