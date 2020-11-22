@@ -1,6 +1,5 @@
 import { createSelector, createFeatureSelector } from '@ngrx/store'
 import { DatasetsState } from '../reducers'
-import * as fromDatasetData from '../reducers/dataset-data.reducer'
 import * as fromDatasetMetadata from './dataset-metadata.selector'
 
 const getDatasetsState = createFeatureSelector<DatasetsState>(
@@ -12,7 +11,7 @@ export const getDatasetDataState = createSelector(
   (state: DatasetsState) => state.data
 )
 
-export const getDataByDataset = (rootState: DatasetsState) => {
+export const getDataByDataset = rootState => {
   // Get selected dataset and verify that it is selected otherwise return empty array
   const selectedDataset = fromDatasetMetadata.getDatasetMetadataSelected(rootState)
 
