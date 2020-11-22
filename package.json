@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "heroku-postbuild": "ng build --prod",
-    "heroku-run": "node server.js"
+    "heroku-run": "node server.js",
+    "test:ci": "ng test --watch=false --browsers=ChromeHeadlessCustom"
   },
   "private": true,
   "dependencies": {
