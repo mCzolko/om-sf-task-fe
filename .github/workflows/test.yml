@@ -35,4 +35,4 @@ jobs:
       - name: Production build
         run: npm run heroku-postbuild
       - name: Test
-        run: npm test:ci
+        run: npm run test:ci
