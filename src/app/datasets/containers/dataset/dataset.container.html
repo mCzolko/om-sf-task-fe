@@ -1,11 +1,16 @@
-<p>Select</p>
-<app-dataset-select [datasets$]="datasetList$" (selectChange)="onSelectChange($event)">
-</app-dataset-select>
+<div class="card">
+  <div class="card-body">
+    <p>
+      <app-dataset-select [datasets$]="datasetList$" (selectChange)="onSelectChange($event)">
+      </app-dataset-select>
+    </p>
 
-<span class="list-error" *ngIf="datasetListErrored$ | async">Error in obtaining datasets</span>
+    <span class="list-error" *ngIf="datasetListErrored$ | async">Error in obtaining datasets</span>
 
-<app-dataset-table
-  [metadata$]="datasetMetadata$"
-  [data$]="datasetData$"
->
-</app-dataset-table>
+    <app-dataset-table
+      [metadata$]="datasetMetadata$"
+      [data$]="datasetData$"
+    >
+    </app-dataset-table>
+  </div>
+</div>
