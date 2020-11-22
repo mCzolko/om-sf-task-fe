@@ -7,7 +7,9 @@ type DataRow = {
 }
 
 export interface DatasetDataState {
-  [key: string]: DataRow
+  [key: string]: {
+    [key: number]: DataRow
+  }
 }
 
 export const initialState: DatasetDataState = {}

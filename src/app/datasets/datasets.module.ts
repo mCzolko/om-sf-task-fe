@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { StoreModule } from '@ngrx/store'
+import { APP_INITIALIZER } from '@angular/core'
 import { EffectsModule } from '@ngrx/effects'
 import { AgGridModule } from 'ag-grid-angular'
 
@@ -10,6 +11,7 @@ import { containers } from './containers'
 import { components } from './components'
 // store
 import { reducers, effects } from './store'
+import { DatasetsWebsocketService } from './services/datasets.websocket.service'
 
 @NgModule({
   declarations: [
@@ -25,6 +27,14 @@ import { reducers, effects } from './store'
   exports: [
     ...containers,
     ...components
+  ],
+  providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: (service: DatasetsWebsocketService) => service.init(),
+      deps: [ DatasetsWebsocketService ],
+      multi: true
+    }
   ]
 })
 export class DatasetsModule { }
