@@ -36,3 +36,7 @@ jobs:
         run: npm run heroku-postbuild
       - name: Test
         run: npm run test:ci
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          path-to-lcov: ./coverage/frontend/lcov.info
