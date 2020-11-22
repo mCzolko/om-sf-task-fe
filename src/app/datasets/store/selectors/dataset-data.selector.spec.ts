@@ -1,5 +1,4 @@
 import * as fromSelector from './dataset-data.selector'
-import { DatasetsState } from '../reducers'
 import * as fromDatasetMetadata from '../reducers/dataset-metadata.reducer'
 
 describe('Store > Dataset > Data Selector', () => {

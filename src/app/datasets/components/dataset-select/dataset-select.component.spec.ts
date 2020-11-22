@@ -32,7 +32,7 @@ describe('DatasetSelectComponent', () => {
   })
 
   it('should display select with datasets', () => {
-    datasets$.next(['one', 'true'])
+    datasets$.next(['one', 'two'])
 
     fixture.detectChanges()
 
@@ -42,7 +42,7 @@ describe('DatasetSelectComponent', () => {
   })
 
   it('should emit after selection in select', () => {
-    datasets$.next(['one', 'true'])
+    datasets$.next(['one', 'two'])
 
     spyOn(component.selectChange, 'emit')
 

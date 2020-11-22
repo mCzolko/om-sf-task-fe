@@ -44,7 +44,7 @@ describe('DatasetTableComponent', () => {
     expect(component).toBeTruthy()
   })
 
-  it('should render table with data', async done => {
+  it('should render table with data', async () => {
     metadata$.next({
       items: [
         {
@@ -84,10 +84,9 @@ describe('DatasetTableComponent', () => {
     expect(cellElements[1].textContent).toEqual('row1 value2')
     expect(cellElements[2].textContent).toEqual('row2 value1')
     expect(cellElements[3].textContent).toEqual('row2 value2')
-    done()
   })
 
-  it('should render table with loading state when no metadata', async done => {
+  it('should render table with loading state when no metadata', () => {
     data$.next([])
     metadata$.next({
       items: [],
@@ -101,6 +100,5 @@ describe('DatasetTableComponent', () => {
     const cellElements = appElement.querySelectorAll('.ag-overlay-loading-center')
 
     expect(cellElements.length).toEqual(1)
-    done()
   })
 })
