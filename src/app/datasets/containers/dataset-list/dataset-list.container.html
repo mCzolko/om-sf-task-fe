@@ -1,11 +1,11 @@
 <p>Select</p>
-<dataset-select [datasets$]="datasetList$" (onSelectChange)="onSelectChange($event)">
-</dataset-select>
+<app-dataset-select [datasets$]="datasetList$" (selectChange)="onSelectChange($event)">
+</app-dataset-select>
 
 <span class="list-error" *ngIf="datasetListErrored$ | async">Error in obtaining datasets</span>
 
-<dataset-table
+<app-dataset-table
   [metadata$]="datasetMetadata$"
   [data$]="datasetData$"
 >
-</dataset-table>
+</app-dataset-table>

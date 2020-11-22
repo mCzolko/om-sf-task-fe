@@ -7,10 +7,10 @@ import { DatasetMetadataState } from '../../store/reducers/dataset-metadata.redu
 import { DataRow } from '../../store/reducers/dataset-data.reducer'
 
 @Component({
-  selector: 'datasetlist-container',
+  selector: 'app-datasetlist-container',
   templateUrl: './dataset-list.container.html',
 })
-export class DatasetListContainer implements OnInit {
+export class DatasetListContainerComponent implements OnInit {
 
   datasetList$: Observable<DatasetListItem[]>
   datasetListErrored$: Observable<boolean>
@@ -23,7 +23,7 @@ export class DatasetListContainer implements OnInit {
 
   constructor(private store: Store<fromStore.DatasetsState>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.datasetList$ = this.store.select(fromStore.selectors.getDatasetList)
     this.datasetListErrored$ = this.store.select(fromStore.selectors.getDatasetListErrored)
 
@@ -33,7 +33,7 @@ export class DatasetListContainer implements OnInit {
     this.store.dispatch(new fromStore.LoadDatasetList())
   }
 
-  onSelectChange(datasetId) {
+  onSelectChange(datasetId): void {
     this.store.dispatch(new fromStore.LoadDatasetMetadata(datasetId))
   }
 

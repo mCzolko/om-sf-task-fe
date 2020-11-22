@@ -18,11 +18,11 @@ export class DatasetsWebsocketService {
     })
   }
 
-  init() {
+  init(): () => Promise<any> {
     return () => new Promise(resolve => this.stompClient.connect({}, resolve))
   }
 
-  subscribe(topic, callback) {
+  subscribe(topic, callback): void {
     this.stompClient.subscribe(topic, ({ body, ...frame }) => {
       callback(JSON.parse(body), frame)
     })
