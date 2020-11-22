@@ -19,7 +19,7 @@ describe('DatasetListContainer', () => {
   let metadata$
   let data$
   let appElement
-  let mockStore: MockStore;
+  let mockStore: MockStore
   let mockDatasetListSelector: MemoizedSelector<DatasetListState, DatasetListItem[]>
   let mockDatasetListErroredSelector: MemoizedSelector<DatasetListState, Boolean>
   let mockDatasetMetadataSelector: MemoizedSelector<DatasetMetadataState, DatasetMetadataState>
@@ -42,31 +42,31 @@ describe('DatasetListContainer', () => {
     fixture = TestBed.createComponent(DatasetListContainer)
     component = fixture.componentInstance
 
-    mockStore = TestBed.inject(MockStore);	
-    mockDatasetListSelector = mockStore.overrideSelector(	
-      fromStore.selectors.getDatasetList,	
-      []	
-    );	
-    mockDatasetListErroredSelector = mockStore.overrideSelector(	
-      fromStore.selectors.getDatasetListErrored,	
-      false
-    );
-    mockDatasetMetadataSelector = mockStore.overrideSelector(	
-      fromStore.selectors.getDatasetMetadataState,	
-      {	
-        items: [],	
-        selected: 'test',	
-        loading: true,	
-        loaded: false,	
-        errored: false	
-      }	
+    mockStore = TestBed.inject(MockStore)
+    mockDatasetListSelector = mockStore.overrideSelector(
+      fromStore.selectors.getDatasetList,
+      []
     )
-    mockDatasetMetadataSelected = mockStore.overrideSelector(	
-      fromStore.selectors.getDatasetMetadataSelected,	
+    mockDatasetListErroredSelector = mockStore.overrideSelector(
+      fromStore.selectors.getDatasetListErrored,
+      false
+    )
+    mockDatasetMetadataSelector = mockStore.overrideSelector(
+      fromStore.selectors.getDatasetMetadataState,
+      {
+        items: [],
+        selected: 'test',
+        loading: true,
+        loaded: false,
+        errored: false
+      }
+    )
+    mockDatasetMetadataSelected = mockStore.overrideSelector(
+      fromStore.selectors.getDatasetMetadataSelected,
       ''
     )
-    mockDatasetDataSelector = mockStore.overrideSelector(	
-      fromStore.selectors.getDatasetDataState,	
+    mockDatasetDataSelector = mockStore.overrideSelector(
+      fromStore.selectors.getDatasetDataState,
       {}
     )
     mockStore.refreshState()

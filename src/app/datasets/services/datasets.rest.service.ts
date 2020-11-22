@@ -13,7 +13,7 @@ export interface MetadataResponse {
 })
 export class DatasetsRestService {
 
-  constructor (private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getDatasets(): Observable<DatasetListItem[]> {
     return this.http.get(`${environment.restUrl}/dataset`) as Observable<DatasetListItem[]>

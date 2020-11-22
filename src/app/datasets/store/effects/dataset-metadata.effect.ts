@@ -14,13 +14,6 @@ export class DatasetMetadataEffect {
     private restService: DatasetsRestService
   ) {}
 
-  private convertMetadataFromResponse(data: MetadataResponse): DatasetMetadata[] {
-    return Object.keys(data).map(field => ({
-      field,
-      name: data[field]
-    }))
-  }
-
   loadDatasetMetadata$ = createEffect(() =>
     this.actions$.pipe(
       ofType(datasetMetadataActions.LOAD_DATASET_METADATA),
@@ -37,5 +30,12 @@ export class DatasetMetadataEffect {
         )
     )
   )
+
+  private convertMetadataFromResponse(data: MetadataResponse): DatasetMetadata[] {
+    return Object.keys(data).map(field => ({
+      field,
+      name: data[field]
+    }))
+  }
 
 }

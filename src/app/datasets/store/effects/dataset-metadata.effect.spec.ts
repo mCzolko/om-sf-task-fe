@@ -42,9 +42,9 @@ describe('DatasetListEffect', () => {
       surname: 'Lastname'
     }
     const expectData = [
-      { field: "id", name: "ID" },
-      { field: "name", name: "Fistname" },
-      { field: "surname", name: "Lastname"}
+      { field: 'id', name: 'ID' },
+      { field: 'name', name: 'Fistname' },
+      { field: 'surname', name: 'Lastname'}
     ]
 
     actions$ = of(new datasetMetadataActions.LoadDatasetMetadata(datasetId))

@@ -1,22 +1,22 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { DatasetSelectComponent } from './dataset-select.component';
-import { Subject } from 'rxjs';
-import { By } from '@angular/platform-browser';
+import { DatasetSelectComponent } from './dataset-select.component'
+import { Subject } from 'rxjs'
+import { By } from '@angular/platform-browser'
 
 describe('DatasetSelectComponent', () => {
-  let component: DatasetSelectComponent;
-  let fixture: ComponentFixture<DatasetSelectComponent>;
+  let component: DatasetSelectComponent
+  let fixture: ComponentFixture<DatasetSelectComponent>
   let datasets$
 
   beforeEach(async done => {
     await TestBed.configureTestingModule({
       declarations: [ DatasetSelectComponent ]
     })
-    .compileComponents();
+    .compileComponents()
 
-    fixture = TestBed.createComponent(DatasetSelectComponent);
-    component = fixture.componentInstance;
+    fixture = TestBed.createComponent(DatasetSelectComponent)
+    component = fixture.componentInstance
 
     datasets$ = new Subject()
     component.datasets$ = datasets$
@@ -25,11 +25,11 @@ describe('DatasetSelectComponent', () => {
     await fixture.whenStable()
 
     done()
-  });
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    expect(component).toBeTruthy()
+  })
 
   it('should display select with datasets', () => {
     datasets$.next(['one', 'true'])
@@ -39,12 +39,12 @@ describe('DatasetSelectComponent', () => {
     const options = fixture.debugElement.queryAll(By.css('.datasets-select option'))
 
     expect(options.length).toEqual(3)
-  });
+  })
 
   it('should emit after selection in select', () => {
     datasets$.next(['one', 'true'])
 
-    spyOn(component.onSelectChange, 'emit');
+    spyOn(component.onSelectChange, 'emit')
 
     fixture.detectChanges()
 
@@ -52,9 +52,9 @@ describe('DatasetSelectComponent', () => {
     select.value = select.options[1].value
     select.dispatchEvent(new Event('change'))
 
-    fixture.detectChanges();
+    fixture.detectChanges()
 
-    expect(component.onSelectChange.emit).toHaveBeenCalled();
-    expect(component.onSelectChange.emit).toHaveBeenCalledWith('one');
-  });
-});
+    expect(component.onSelectChange.emit).toHaveBeenCalled()
+    expect(component.onSelectChange.emit).toHaveBeenCalledWith('one')
+  })
+})

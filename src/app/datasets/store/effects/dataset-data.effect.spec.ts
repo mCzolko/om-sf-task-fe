@@ -14,7 +14,7 @@ describe('DatasetDataEffect', () => {
   let datasetsWebsocketServiceSpy
 
   beforeEach(() => {
-    datasetsWebsocketServiceSpy = jasmine.createSpyObj('DatasetsWebsocketService', ['connectToUpdateStream']);
+    datasetsWebsocketServiceSpy = jasmine.createSpyObj('DatasetsWebsocketService', ['connectToUpdateStream'])
 
     TestBed.configureTestingModule({
       providers: [

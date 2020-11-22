@@ -1,11 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DatasetTableComponent } from './dataset-table.component';
-import { AgGridModule } from 'ag-grid-angular';
-import { Subject } from 'rxjs';
+import { ComponentFixture, TestBed } from '@angular/core/testing'
+import { DatasetTableComponent } from './dataset-table.component'
+import { AgGridModule } from 'ag-grid-angular'
+import { Subject } from 'rxjs'
 
 describe('DatasetTableComponent', () => {
-  let component: DatasetTableComponent;
-  let fixture: ComponentFixture<DatasetTableComponent>;
+  let component: DatasetTableComponent
+  let fixture: ComponentFixture<DatasetTableComponent>
   let metadata$
   let data$
   let appElement
@@ -17,11 +17,11 @@ describe('DatasetTableComponent', () => {
       ],
       declarations: [ DatasetTableComponent ]
     })
-    .compileComponents();
+    .compileComponents()
 
-    fixture = TestBed.createComponent(DatasetTableComponent);
+    fixture = TestBed.createComponent(DatasetTableComponent)
 
-    component = fixture.componentInstance;
+    component = fixture.componentInstance
 
     metadata$ = new Subject()
     data$ = new Subject()
@@ -34,11 +34,11 @@ describe('DatasetTableComponent', () => {
     await fixture.whenStable()
 
     done()
-  });
+  })
 
   it('grid API is available', () => {
     expect(component.gridApi).toBeTruthy()
-  });
+  })
 
   it('should create', () => {
     expect(component).toBeTruthy()
@@ -80,12 +80,12 @@ describe('DatasetTableComponent', () => {
     const cellElements = appElement.querySelectorAll('.ag-cell-value')
 
     expect(cellElements.length).toEqual(4)
-    expect(cellElements[0].textContent).toEqual("row1 value1")
-    expect(cellElements[1].textContent).toEqual("row1 value2")
-    expect(cellElements[2].textContent).toEqual("row2 value1")
-    expect(cellElements[3].textContent).toEqual("row2 value2")
+    expect(cellElements[0].textContent).toEqual('row1 value1')
+    expect(cellElements[1].textContent).toEqual('row1 value2')
+    expect(cellElements[2].textContent).toEqual('row2 value1')
+    expect(cellElements[3].textContent).toEqual('row2 value2')
     done()
-  });
+  })
 
   it('should render table with loading state when no metadata', async done => {
     data$.next([])
@@ -102,5 +102,5 @@ describe('DatasetTableComponent', () => {
 
     expect(cellElements.length).toEqual(1)
     done()
-  });
-});
+  })
+})

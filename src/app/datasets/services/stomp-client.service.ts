@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core'
 import { environment } from '../../../environments/environment'
 import { Stomp } from 'stompjs/lib/stomp'
-const SockJS = window['SockJS'] // https://github.com/sockjs/sockjs-client/issues/519
+const SockJS = window.SockJS // https://github.com/sockjs/sockjs-client/issues/519
 
 @Injectable({
   providedIn: 'root'

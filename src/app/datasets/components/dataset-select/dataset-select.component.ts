@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Observable } from 'rxjs';
-import { DatasetListItem } from '../../models/dataset-list.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core'
+import { Observable } from 'rxjs'
+import { DatasetListItem } from '../../models/dataset-list.model'
 
 @Component({
   selector: 'dataset-select',
@@ -16,7 +16,7 @@ export class DatasetSelectComponent {
   onSelectChange = new EventEmitter<string>()
 
   onOptionsSelected = (event: Event) => {
-    this.onSelectChange.emit(event.target['value'])
+    this.onSelectChange.emit(event.target.value)
   }
 
 }

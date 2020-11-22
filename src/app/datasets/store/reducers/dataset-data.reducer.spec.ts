@@ -9,10 +9,10 @@ describe('Store > Dataset > Data Reducer', () => {
     const updates: fromReducer.DataRow[] = [
       {
         id: 1,
-        name: "John",
+        name: 'John',
       }, {
         id: 2,
-        name: "Joe"
+        name: 'Joe'
       }
     ]
     const payload: DatasetDataUpdate = {

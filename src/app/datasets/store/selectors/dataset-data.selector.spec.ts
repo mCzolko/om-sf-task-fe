@@ -12,7 +12,7 @@ describe('Store > Dataset > Data Selector', () => {
         data: {}
       }
     }
- 
+
     expect(fromSelector.getDataByDataset(rootState)).toEqual([])
   })
 
@@ -27,7 +27,7 @@ describe('Store > Dataset > Data Selector', () => {
         data: {}
       }
     }
- 
+
     expect(fromSelector.getDataByDataset(rootState)).toEqual([])
   })
 
@@ -46,7 +46,7 @@ describe('Store > Dataset > Data Selector', () => {
         }
       }
     }
- 
+
     expect(fromSelector.getDataByDataset(rootState)).toEqual([ { id: 1, foo: 'bar' } ])
   })
 
