@@ -12,7 +12,6 @@ export const getDatasetDataState = createSelector(
   (state: DatasetsState) => state.data
 )
 
-export const getDatasetData = createSelector(getDatasetDataState, fromDatasetData.getDatasetData)
 export const getDataByDataset = (rootState: DatasetsState) => {
   // Get selected dataset and verify that it is selected otherwise return empty array
   const selectedDataset = fromDatasetMetadata.getDatasetMetadataSelected(rootState)
@@ -22,7 +21,7 @@ export const getDataByDataset = (rootState: DatasetsState) => {
   }
 
   // if we do have data for current dataset we will return them
-  const datasetData = getDatasetData(rootState)
+  const datasetData = getDatasetDataState(rootState)
 
   if (datasetData[selectedDataset]) {
     return Object.values(datasetData[selectedDataset])

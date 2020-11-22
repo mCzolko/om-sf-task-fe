@@ -2,7 +2,7 @@
 <dataset-select [datasets$]="datasetList$" (onSelectChange)="onSelectChange($event)">
 </dataset-select>
 
-<span *ngIf="datasetListErrored$ | async">Error in obtaining datasets</span>
+<span class="list-error" *ngIf="datasetListErrored$ | async">Error in obtaining datasets</span>
 
 <dataset-table
   [metadata$]="datasetMetadata$"

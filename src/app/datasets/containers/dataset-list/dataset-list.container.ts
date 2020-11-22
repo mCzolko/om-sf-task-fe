@@ -4,6 +4,7 @@ import { Observable } from 'rxjs'
 import { DatasetListItem } from '../../models/dataset-list.model'
 import * as fromStore from '../../store'
 import { DatasetMetadataState } from '../../store/reducers/dataset-metadata.reducer'
+import { DataRow } from '../../store/reducers/dataset-data.reducer'
 
 @Component({
   selector: 'datasetlist-container',
@@ -16,7 +17,7 @@ export class DatasetListContainer implements OnInit {
 
   datasetMetadata$: Observable<DatasetMetadataState>
 
-  datasetData$: Observable<any>
+  datasetData$: Observable<DataRow[]>
 
   selectedDatasetId: string
 

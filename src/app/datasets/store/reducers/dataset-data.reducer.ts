@@ -41,5 +41,3 @@ export function reducer(
       return state
   }
 }
-
-export const getDatasetData = (state: DatasetDataState) => state
