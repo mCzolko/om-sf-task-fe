@@ -1,7 +1,7 @@
 import * as fromDatasetData from '../actions/dataset-data.action'
 import { DatasetDataUpdate } from '../../models/dataset-data-update.model'
 
-type DataRow = {
+export type DataRow = {
   id: number,
   [key: string]: string|number
 }

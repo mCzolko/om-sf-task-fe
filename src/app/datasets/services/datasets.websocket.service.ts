@@ -1,21 +1,14 @@
 import { Injectable } from '@angular/core'
-import { environment } from '../../../environments/environment'
-import { Stomp } from 'stompjs/lib/stomp'
 import { Observable } from 'rxjs'
 import { DatasetDataUpdate } from '../models/dataset-data-update.model'
-const { SockJS } = window // https://github.com/sockjs/sockjs-client/issues/519
+import { StompClient } from './stomp-client.service'
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatasetsWebsocketService {
 
-  public stompClient
-
-  constructor() {
-    const ws = new SockJS(environment.webSocketUrl)
-    this.stompClient = Stomp.over(ws)
-  }
+  constructor(private stompClient: StompClient) {}
 
   connectToUpdateStream(): Observable<DatasetDataUpdate> {
     return new Observable(observer => {
