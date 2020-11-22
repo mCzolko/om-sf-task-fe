@@ -3,7 +3,7 @@ import { provideMockStore, MockStore } from '@ngrx/store/testing'
 import { MemoizedSelector } from '@ngrx/store'
 import { MockComponent } from 'ng-mocks'
 import * as fromStore from '../../store'
-import { DatasetListContainerComponent } from './dataset-list.container'
+import { DatasetContainerComponent } from './dataset.container'
 import { DatasetMetadataState } from '../../store/reducers/dataset-metadata.reducer'
 import { DatasetDataState } from '../../store/reducers/dataset-data.reducer'
 import { DatasetTableComponent } from '../../components/dataset-table/dataset-table.component'
@@ -11,9 +11,9 @@ import { DatasetSelectComponent } from '../../components/dataset-select/dataset-
 import { DatasetListItem } from '../../models/dataset-list.model'
 import { DatasetListState } from '../../store/reducers/dataset-list.reducer'
 
-describe('DatasetListContainer', () => {
-  let component: DatasetListContainerComponent
-  let fixture: ComponentFixture<DatasetListContainerComponent>
+describe('DatasetContainerComponent', () => {
+  let component: DatasetContainerComponent
+  let fixture: ComponentFixture<DatasetContainerComponent>
   let appElement
   let mockStore: MockStore
   let mockDatasetListSelector: MemoizedSelector<DatasetListState, DatasetListItem[]>
@@ -25,7 +25,7 @@ describe('DatasetListContainer', () => {
   beforeEach(async done => {
     TestBed.configureTestingModule({
       declarations: [
-        DatasetListContainerComponent,
+        DatasetContainerComponent,
         MockComponent(DatasetTableComponent),
         MockComponent(DatasetSelectComponent)
       ],
@@ -35,7 +35,7 @@ describe('DatasetListContainer', () => {
     })
     .compileComponents()
 
-    fixture = TestBed.createComponent(DatasetListContainerComponent)
+    fixture = TestBed.createComponent(DatasetContainerComponent)
     component = fixture.componentInstance
 
     mockStore = TestBed.inject(MockStore)

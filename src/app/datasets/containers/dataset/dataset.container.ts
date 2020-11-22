@@ -7,10 +7,10 @@ import { DatasetMetadataState } from '../../store/reducers/dataset-metadata.redu
 import { DataRow } from '../../store/reducers/dataset-data.reducer'
 
 @Component({
-  selector: 'app-datasetlist-container',
-  templateUrl: './dataset-list.container.html',
+  selector: 'app-dataset-container',
+  templateUrl: './dataset.container.html',
 })
-export class DatasetListContainerComponent implements OnInit {
+export class DatasetContainerComponent implements OnInit {
 
   datasetList$: Observable<DatasetListItem[]>
   datasetListErrored$: Observable<boolean>

@@ -44,7 +44,7 @@ describe('DatasetSelectComponent', () => {
   it('should emit after selection in select', () => {
     datasets$.next(['one', 'true'])
 
-    spyOn(component.onSelectChange, 'emit')
+    spyOn(component.selectChange, 'emit')
 
     fixture.detectChanges()
 
@@ -54,7 +54,7 @@ describe('DatasetSelectComponent', () => {
 
     fixture.detectChanges()
 
-    expect(component.onSelectChange.emit).toHaveBeenCalled()
-    expect(component.onSelectChange.emit).toHaveBeenCalledWith('one')
+    expect(component.selectChange.emit).toHaveBeenCalled()
+    expect(component.selectChange.emit).toHaveBeenCalledWith('one')
   })
 })

@@ -1,5 +1,5 @@
-import { DatasetListContainerComponent } from './dataset-list/dataset-list.container'
+import { DatasetContainerComponent } from './dataset/dataset.container'
 
 export const containers = [
-  DatasetListContainerComponent
+  DatasetContainerComponent
 ]
