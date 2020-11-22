@@ -1,4 +1,4 @@
-# Frontend
+# Frontend [![build status](https://github.com/mCzolko/om-sf-task-fe/workflows/CI/badge.svg)](https://github.com/mCzolko/om-sf-task-fe/actions)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
